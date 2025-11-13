@@ -1,0 +1,43 @@
+SITE oficial, OEM, para adiquirir documentos e informacoes : 
+https://www.hlktech.net/index.php?id=1150
+
+
+Link para detalhacao de um projeto ESPhome usando HLK-LD, modulo radar:
+https://esphome-io.translate.goog/components/sensor/ld2420.html?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
+
+
+
+texas industries (modulos de maior frequencia mas bem caros):
+https://www.ti.com/sensors/mmwave-radar/products.html
+
+
+mistral  (modulos de maior frequencia mas bem caros):
+https://www.mistralsolutions.com/product-engineering-services/expertise/mmwave-radar-modules/
+
+
+Para calcular o comprimento de onda (λ) de uma onda de rádio com base na sua frequência (f), você pode usar a seguinte fórmula:
+                             λ=c/f
+Onde:
+
+	    λ (lambda) = comprimento de onda (em metros, m)
+
+	    c = velocidade da luz no vácuo (aproximadamente 3 × 10⁸ m/s)
+
+	    f = frequência da onda (em Hertz, Hz)
+	   
+	   
+	   
+Informações em chines do HLK-LD2420:
+https://h.hlktech.com/Mobile/download/fdetail/225.html
+
+
+site guia de modulos:
+https://openelab.io/blogs/learn/guidance-for-hi-link-24g-series-radar-modules#ruffruff-table-of-contents-item-2
+
+
+Posivel codigo de teste:
+https://github.com/ncmreynolds/ld2410/tree/main/examples
+
+
+Arduino teste:
+https://projecthub.arduino.cc/carlosvolt/ld2410c-human-presence-sensor-configuration-with-app-circuit-and-test-with-arduino-micro-8ae791
