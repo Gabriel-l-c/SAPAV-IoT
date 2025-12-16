@@ -1,0 +1,2 @@
+instalação de orion context broker (ocb) e mongodb na Raspberrypi:
+https://stackoverflow.com/questions/79458248/installation-of-fiware-orion-context-broker-ocb-in-raspberry-pi-model-4-rp4]

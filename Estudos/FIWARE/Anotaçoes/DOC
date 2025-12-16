@@ -1,0 +1,43 @@
+link github:
+https://github.com/FIWARE/awesome
+
+link site:
+https://www.fiware.org/about-us/
+
+Link use raspberrypi and fiware :
+https://github.com/lets-fiware/fiware-pi
+
+
+link iot agent (ultralight):
+https://ngsi-ld-tutorials.readthedocs.io/en/latest/iot-agent.html
+
+
+link test json, iot exemplo com led, http protocolo:
+https://www.fiware.org/2015/06/10/iot-tutorial-orion-context-broker-arduino/
+
+link exemplo ESP32 HTTP GET and HTTP POST em json:
+https://randomnerdtutorials.com/esp32-http-get-post-arduino/
+
+com docker ja baixo e setado:
+
+inicialização:
+
+docker pull mongo:3.6
+docker pull fiware/orion
+docker network create fiware_default
+
+star up:
+
+//comecar e conectar na network docer -> mongo
+
+docker run -d --name=context-db --network=fiware_default \
+  --expose=27017 mongo:3.6 --bind_ip_all --smallfiles
+
+//Orion context broker conecta rna network
+docker run -d --name orion  --network=fiware_default \
+  -p 1026:1026  fiware/orion -dbhost context-db
+
+//chegar se orion foi conectado
+curl -X GET http://localhost:1026/version
+
+

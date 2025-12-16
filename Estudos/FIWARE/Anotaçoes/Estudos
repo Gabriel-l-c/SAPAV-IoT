@@ -1,0 +1,36 @@
+//documento desenvolvido por Gabriel Lyra Campos destinado para estudo e aplicação do FIWARE com foco no NGSI-LD
+Link github FIWARE tutorials:
+https://github.com/FIWARE/tutorials.Getting-Started
+
+Link de um iniciação with NGSI-V2(NGSI-v2 data format has a proven track record of providing interoperability within individual Smart systems) :
+https://fiware-tutorials.readthedocs.io/en/latest/getting-started.html
+
+
+Link Node-RED(FIWARE-NGSI-v2) :
+https://flows.nodered.org/collection/TX0j7WpBbkLC
+
+Link postman :
+https://www.postman.com/fiware/fiware-foundation-ev-s-public-workspace/collection/e0c7ank/ngsi-v2-linked-data
+
+Link NGSI-LD:
+https://github.com/FIWARE/tutorials.Getting-Started/tree/NGSI-LD
+
+Link JSON-LD:
+https://json-ld.org/
+
+Resumo: 
+
+NGSI-LD(NGSI-LD é um modelo de informação e API(interface de Programação de Aplicações) para publicação , consulta e assinatura de informações de contexto ) is a formally structured extended subset of JSON-LD(JSON-LD é um método de codificação de dados vinculados usando o formato JSON).
+NGSI-LD formalmente estruturado é um subconjunto estendido de JSON-LD . Portanto, NGSI-LD oferece todos os interoperabilidade e flexibilidade do próprio JSON-LD
+
+Para as aplicações sera ultilizado o Orion Context Broker (permite gerenciar todo o ciclo de vida das informações de contexto, incluindo atualizações, consultas, registros e assinaturas.
+
+olhar a imagem fiware_orion_mongo_esquematico.png ou orion_fiware_esquematico.jpg, para visualizar a integracao fiware->orion.
+
+Orion Context Broker:
+ Context Broker e um componente de plataforma digital, como um centro central para obter informações,dados em tempo real.
+ Orion Context Broker permite gerenciar todo o ciclo de vida das informações de contexto. incluindo atualizações, consultas, registros e assinaturas.
+ 
+ Postman:
+  E a plataforma onde times controem API. Plataforma Tudo em 1 em APIS
+ 

@@ -1,0 +1,228 @@
+1 baixar e intalar mongodb e docker compose
+sudo apt update
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo apt install docker-compose -y
+sudo usermod -aG docker ${USER}
+
+diretorio orion:
+cd ~
+mkdir orion-cb
+cd orion-cb
+
+
+comandos usados:
+sudo docker compose up -d
+sudo docker compose down --volumes
+sudo docker volume rm 
+sudo docker volume ls -q
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+orion/docker-compose.yml:
+version: '3.7'
+services:
+  # ----------------------------------
+  # 1. MongoDB (Banco de Dados)
+  # ----------------------------------
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: always
+
+  # ----------------------------------
+  # 2. Orion Context Broker (Cérebro do Contexto)
+  # ----------------------------------
+  orion:
+    image: fiware/orion:latest
+    container_name: fiware-orion
+    ports:
+      - "1026:1026"
+    depends_on:
+      - mongodb
+    # Conexão robusta ao MongoDB usando variáveis de ambiente
+    environment:
+      - ORION_MONGO_URI=mongodb://mongodb:27017
+      - ORION_LOG_LEVEL=DEBUG
+    restart: always
+
+  # ----------------------------------
+  # 3. IoT Agent (Tradutor de Protocolo)
+  # ----------------------------------
+  iota-ul:
+    image: fiware/iotagent-ul:latest
+    container_name: fiware-iota-ul
+    hostname: iota-ul
+    ports:
+      # Porta para comunicação do dispositivo (ESP8266) e administração
+      - "7896:7896"
+    environment:
+      - IOTA_CB_HOST=orion              # Hostname interno do Broker
+      - IOTA_CB_PORT=1026
+      - IOTA_NORTH_PORT=7896           # Porta de administração (para provisionamento)
+      - IOTA_INCOMING_PORT=7896        # Porta de tráfego do dispositivo
+      - IOTA_PROTOCOL=UL20             # Protocolo UltraLight 2.0
+      - IOTA_API_KEY=4jgt4tywsy4ygh2480648 # Chave de segurança
+      - IOTA_SERVICE=minha_casa        # Serviço FIWARE
+      - IOTA_SERVICE_PATH=/
+      - IOTA_MONGO_HOST=mongodb        # Hostname interno do Mongo
+      - IOTA_MONGO_PORT=27017
+      - IOTA_MONGO_DB=iotagentul
+    depends_on:
+      - orion
+      - mongodb
+    restart: always
+
+volumes:
+  mongodb_data:
+
+
+
+curl para requisicao de iot:
+curl -iX POST 'http://localhost:7896/iot/services' \
+-H 'Content-Type: application/json' \
+-H 'Fiware-Service: minha_casa' \
+-H 'Fiware-ServicePath: /' \
+-d '{"services": [{"apikey": "4jgt4tywsy4ygh2480648","cbroker": "http://orion:1026","entity_type": "SmartLamp","resource": "/iot/ul"}]}'
+
+
+curl -iX POST 'http://localhost:7896/iot/devices' \ \
+-H 'Content-Type: application/json' \
+-H 'Fiware-Service: minha_casa' \
+-H 'Fiware-ServicePath: /' \
+-d @- <<EOF
+{
+  "devices": [
+    {
+      "device_id": "lamp01",
+      "entity_name": "Lampada:001",
+      "entity_type": "SmartLamp",
+      "protocol": "PDI-UL",
+      "transport": "HTTP",
+      "commands": [
+        {"name": "comandoLED", "type": "command"}
+      ],
+      "attributes": [
+        {"name": "status", "object_id": "s", "type": "Text"}
+      ]
+    }
+  ]
+}
+EOF
+
+
+
+depois faz compose up
+
+esse proximo comando e para deposi que espo estiver rodando:
+curl -iX PATCH 'http://localhost:1026/v2/entities/Lampada:001/attrs' \
+-H 'Content-Type: application/json' \
+-H 'Fiware-Service: minha_casa' \
+-H 'Fiware-ServicePath: /' \
+-d '{"comandoLED": {"type": "command", "value": "ON"}}'
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+codigo esp8266:
+
+#include <ESP8266HTTPClient.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+
+// --- Configurações de Rede ---
+const char* APN = "nerds"; 
+const char* PASS = "nerds23517891";
+
+// --- Configurações do Dispositivo FIWARE ---
+// ATENÇÃO: ESTE IP DEVE SER ATUALIZADO PARA O NOVO IP WI-FI DO PC!
+const char* IOTA_HOST = "172.16.30.83"; 
+const int IOTA_PORT = 7896;
+const char* API_KEY = "4jgt4tywsy4ygh2480648";
+const char* DEVICE_ID = "lamp01"; 
+const char* RESOURCE_PATH = "/"; // Caminho simplificado para evitar 404
+const int COMMAND_PORT = 80; 
+
+// --- Configurações de Hardware ---
+const int LED_PIN = 13; // GPIO 13
+bool led_state = false;
+
+ESP8266WebServer server(COMMAND_PORT);
+WiFiClient client;
+
+// FUNÇÃO PARA PROCESSAR O COMANDO RECEBIDO DO IOT AGENT
+void processCommand() {
+  String command = server.arg(0);
+  if (command.startsWith("comandoLED|")) {
+    String value = command.substring(11);
+    
+    if (value.equals("ON")) {
+      digitalWrite(LED_PIN, HIGH);
+      led_state = true;
+      Serial.println("Comando: LIGAR LED");
+    } else if (value.equals("OFF")) {
+      digitalWrite(LED_PIN, LOW);
+      led_state = false;
+      Serial.println("Comando: DESLIGAR LED");
+    }
+
+    String responseBody = "comandoLED@ok|"; 
+    server.send(200, "text/plain", responseBody);
+    reportStatus(); // Reporta a mudança de estado
+  } else {
+    server.send(400, "text/plain", "Comando desconhecido.");
+  }
+}
+
+// FUNÇÃO PARA ENVIAR O STATUS ATUAL (SALA DE SENSOR)
+void reportStatus() {
+  HTTPClient http;
+  String url = "http://" + String(IOTA_HOST) + ":" + String(IOTA_PORT) + 
+               String(RESOURCE_PATH) + "?k=" + String(API_KEY) + "&i=" + String(DEVICE_ID);
+
+  http.begin(client, url);
+  http.addHeader("Content-Type", "text/plain");
+
+  // Corpo da requisição no formato UltraLight: s|ON ou s|OFF
+  String status_val = led_state ? "ON" : "OFF";
+  String payload = "s|" + status_val;
+  
+  int httpCode = http.POST(payload);
+
+  if (httpCode > 0) {
+    Serial.printf("Status reportado. Código HTTP: %d\n", httpCode);
+  } else {
+    Serial.printf("Falha no reporte HTTP. Erro: %s\n", http.errorToString(httpCode).c_str());
+  }
+  http.end();
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, LOW);
+  
+  WiFi.begin(APN, PASS);
+  Serial.print("Conectando ao WiFi...");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(" Conectado!");
+  Serial.print("IP do ESP8266: ");
+  Serial.println(WiFi.localIP());
+
+  server.on("/iot/ul", HTTP_POST, processCommand); // IoTA envia comandos para este endpoint
+  server.begin();
+  
+  reportStatus(); 
+}
+
+void loop() {
+  server.handleClient();
+  delay(10); 
+}

@@ -1,0 +1,15 @@
+Discurção sobre LD2420 não está funcionando de forma confiável:
+https://github.com/esphome/esphome/issues/11101
+isso levou a usar o pin 16 e 17(nativos), alem de acertar a velocidade uart
+
+em GelidusResearch:
+https://github.com/GelidusResearch/device.docs/tree/main
+mostra como configurar o yaml, e usar OTA para atualizao de cosigo online.
+ele manda para:
+https://esphome.io/components/sensor/ld2420/
+
+especificaceos de calibração para o hardware PS1 um esp32 customizado:
+Bem-vindo ao Guia de Ajuste do Radar mmWave PS1 da Gelidus Research - LD2420 
+https://github.com/GelidusResearch/device.docs/blob/main/ps1.guides/PS1-Tuning-Guide-LD2420.md
+
+

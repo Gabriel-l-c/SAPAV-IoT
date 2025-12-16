@@ -1,0 +1,45 @@
+]tutotial arduino fiware:
+https://www.fiware.org/2015/06/10/iot-tutorial-orion-context-broker-arduino/
+
+
+tutorials.Step-by-Step - Kazuhito Suda (fisuda)
+https://github.com/fisuda/tutorials.Step-by-Step
+
+tutorials.Context-Providers
+https://github.com/FIWARE/tutorials.Context-Providers/tree/master
+
+POST and GET Smart Model Data with the Orion-LD Context Broker REST APIs for Smart Devices 
+https://www.youtube.com/watch?v=3yIETFSa-pU
+
+FIWARE IoT Agent for a JSON-based Protocol
+https://github.com/telefonicaid/iotagent-json?tab=readme-ov-file
+https://github.com/telefonicaid/fiware-figway/
+
+How to install Orion contextBroker Fiware
+https://www.youtube.com/watch?v=fJiIEv9kzuc
+
+test, fiware com curl ou postman e docker:
+
+https://documenter.getpostman.com/view/513743/ngsi-ld-iot-sensors/TVK76LPh
+
+IoT Sensors
+https://github.com/FIWARE/tutorials.IoT-Sensors/tree/NGSI-LD
+https://github.com/FIWARE/tutorials.IoT-Sensors?tab=readme-ov-file
+
+raspberrypi
+https://www.fiware.org/2014/06/18/connect-your-own-internet-of-things-to-fi-lab/
+
+IoT Agents & Robots » IoT Agent (Ultralight) 
+https://fiware-tutorials.readthedocs.io/en/latest/iot-agent.html
+
+
+ETSI GS CIM 009V1.9.1(2025-07)
+
+Context Information Management (CIM);
+
+NGSI-LD API
+https://cim.etsi.org/NGSI-LD/official/front-page.html
+
+
+FIWARE Open API Specifications - JASON FOC
+https://github.com/FIWARE/specifications?tab=readme-ov-file

@@ -1,0 +1,27 @@
+//Document destinated for study of CDM324 module, made by Gabriel Lyra 
+
+Reddit discuss link:
+https://www.reddit.com/r/rfelectronics/comments/96v4ho/tutorial_experiment_teardown_of_a_cdm324_24ghz/
+
+Link for TSP #130 - Tutorial, Experiment & Teardown of a CDM324 24GHz Doppler Radar Module, from The Signal Path:
+https://www.youtube.com/watch?v=5vqSX40seqA
+
+Link site para hardware montagem:
+https://www.icstation.com/cdm324-24ghz-microwave-human-body-motion-sensor-module-radar-induction-switch-sensor-p-8962.html
+
+Link github code, from kd8bxp, 24ghzdoppler:
+https://github.com/kd8bxp/24ghzdoppler
+
+LIMPKIN link in with is discuss a application to module, with hardware dovepment:
+https://www.limpkin.fr/index.php?post/2022/03/31/CDM324-Doppler-Motion-Sensor-Backpack%2C-now-with-FFTs%21
+
+Link Radar under 20€ using cheap CDM324 24GHz doppler module, developed by pavlin:
+https://e.pavlin.si/2018/02/07/radar-under-20e-using-cheap-cdm324-24ghz-doppler-module/
+
+Link cdm324_backpack:
+https://github.com/limpkin/cdm324_backpack/tree/master
+limpkin disculte sobre os melhores circuitos de filtro e amplificação, aparentemente o circuit chines e ineficiente
+
+Link deterctor de velocidade :
+https://www.youtube.com/watch?v=Kzsh59TM4MY
+

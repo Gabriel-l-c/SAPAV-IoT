@@ -1,0 +1,9 @@
+NGSI-LD é uma API REST baseada em JSON-LD que permite a interoperabilidade de dados em tempo real
+
+Uma API REST (ou API RESTful) é um estilo arquitetônico para criar serviços web que permitem a comunicação entre diferentes sistemas através de protocolos como o HTTP
+
+Programação de Aplicações (API) Transferência de Estado Representacional (REST)
+
+IOT Agente é uma ponte que pode ser usada para comunicar dispositivos usando um protocolo JSON simples e NGSI Corretores de contexto (como Orion).
+
+ As imagens architecture-ld, command-swimlane, fiware_orion_mongo_esquematico, orion_fiware_esquematico mostram equematicos que explicam graficamente a interligação entre esse componentes.
