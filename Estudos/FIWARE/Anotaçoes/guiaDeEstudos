@@ -40,4 +40,28 @@ docker run -d --name orion  --network=fiware_default \
 //chegar se orion foi conectado
 curl -X GET http://localhost:1026/version
 
+--------------------------------------------------
+
+por telefonicaid, fgalan:
+Orion Context Broker
+https://github.com/telefonicaid/fiware-orion#install
+
+How to use Orion Context Broker with Docker
+https://github.com/telefonicaid/fiware-orion/blob/master/docker/README.md
+
+por FIWARE:
+
+FIWARE Training: IoT and Legacy
+https://www.slideshare.net/slideshow/fiware-training-iot-and-legacy/249532863
+
+Welcome to Orion Context Broker.
+https://fiware-orion.readthedocs.io/en/master/
+
+Installing Orion
+https://fiware-orion.readthedocs.io/en/2.0.0/admin/install/index.html#installation
+
+FIWARE Data Models
+https://fiware.github.io/data-models/
+
+
 
