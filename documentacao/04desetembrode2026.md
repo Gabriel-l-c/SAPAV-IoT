@@ -11,6 +11,18 @@ Acesso o [ NGSI-LD for NGSI-v2 Developers » Linked Data](https://fiware-tutoria
 
 **identificar a versao do firware no ip **
 curl -s -X GET "http://192.168.0.95:31330/version"
+{
+  "orionld version": "1.8.0",
+  "orion version":   "1.15.0-next",
+  "uptime":          "1 d, 0 h, 15 m, 14 s",
+  "git_hash":        "nogitversion",
+  "compile_time":    "Mon Jan 13 11:28:16 UTC 2025",
+  "compiled_by":     "root",
+  "compiled_in":     "",
+  "release_date":    "Mon Jan 13 11:28:16 UTC 2025",
+  "doc":             "https://fiware-orion.readthedocs.org/en/master/"
+}
+
 
 **limpar o ip**
 curl -i -X DELETE "http://192.168.0.95:31330/ngsi-ld/v1/entities/urn:ngsi-ld:Device:LD2420" \
