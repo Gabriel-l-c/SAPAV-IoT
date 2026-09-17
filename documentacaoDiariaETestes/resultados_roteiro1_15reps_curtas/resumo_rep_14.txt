@@ -1,0 +1,20 @@
+==============================================================
+PERDA DE PACOTE (por numero de sequencia)
+--------------------------------------------------------------
+Sequencias esperadas (seq_min..seq_max): 4532..4552  (n=21)
+Sequencias recebidas:                    21
+Sequencias perdidas:                      0  (0.0%)
+==============================================================
+JITTER DE CHEGADA (intervalo entre pacotes consecutivos no RPi)
+  esperado = 1000 ms
+  media    = 940.5 ms
+  mediana  = 1000.0 ms
+  min/max  = 144.1 / 1002.6 ms
+  desvio padrao (jitter) = 201.8 ms
+==============================================================
+LATENCIA DE REDE/BROKER (POST -> resposta Orion-LD)
+  media    = 33.2 ms
+  mediana  = 25.3 ms
+  min/max  = 18.2 / 136.5 ms
+  desvio padrao = 26.9 ms
+==============================================================
