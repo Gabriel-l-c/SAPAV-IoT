@@ -36,7 +36,7 @@ void setup() {
   Serial.begin(115200);
   while (!Serial) { delay(10); }
 
-  sensorSerial.begin(38400);
+  sensorSerial.begin(115200);
   if (!radar.begin(sensorSerial)) {
     Serial.println("{\"error\": \"Falha na comunicacao com LD2420\"}");
     while (1) delay(1000);
