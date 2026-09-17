@@ -16,7 +16,8 @@ Arquitetura Edge-Gateway: LD2420 + ESP8266 + Raspberry Pi 4 + FIWARE Orion-LDEst
 [ Rede Local / Ethernet ]
        ▼
 [ FIWARE Orion-LD ] (Context Broker - 192.168.0.95:31330)
-Pinagem LD2420 $\leftrightarrow$ ESP8266:TX do Sensor $\rightarrow$ Pino 13 (D7) do ESP8266 (RX da SoftwareSerial)RX do Sensor $\rightarrow$ Pino 15 (D8) do ESP8266 (TX da SoftwareSerial)VCC/GND $\rightarrow$ 5V ou 3.3V / GND2. Firmware do Nó Sensor (ESP8266)O código abaixo deve ser gravado no ESP8266. Ele foi purgado de lógicas de rede (Wi-Fi/HTTP), atuando como um conversor UART-para-USB super rápido.C++#include <SoftwareSerial.h>
+Pinagem LD2420 $\leftrightarrow$ ESP8266:TX do Sensor $\rightarrow$ Pino 13 (D7) do ESP8266 (RX da SoftwareSerial)RX do Sensor $\rightarrow$ Pino 15 (D8) do ESP8266 (TX da SoftwareSerial)VCC/GND $\rightarrow$ 5V ou 3.3V / GND2. Firmware do Nó Sensor (ESP8266)O código abaixo deve ser gravado no ESP8266. Ele foi purgado de lógicas de rede (Wi-Fi/HTTP), atuando como um conversor UART-para-USB super rápido.C++
+#include <SoftwareSerial.h>
 #include "LD2420.h"
 
 #define RX_PIN 13 // Conectado ao TX do LD2420
@@ -81,7 +82,9 @@ void loop() {
 }
 3. Script do Gateway IoT (Raspberry Pi 4)Este script Python roda no Raspberry Pi, interpretando as strings seriais recebidas pelo cabo USB e injetando a complexidade do contexto NGSI-LD (ETSI) antes de enviar ao servidor.Requisitos no Raspberry Pi:Bashsudo apt update && sudo apt install python3-pip -y
 pip3 install pyserial requests
-Arquivo: gateway_orion.pyPythonimport serial
+Arquivo: gateway_orion.py
+Python
+import serial
 import json
 import requests
 import time

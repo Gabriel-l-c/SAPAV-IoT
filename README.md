@@ -1,19 +1,31 @@
-Repositório publico de pesquisa para projeto de IC no laboratório Núcleo de Estudos em Redes Definidas por Software (NERDS) da
-Universidade Federal do Espírito Santo (UFES).
+# 🌐 SAPAV-IoT
 
-O repositório visa a analise e implementação de sensores de ondas milimétricas como o ld2420 para detecção em vias. Usando implementações em codificação c/c++ e phyton,
-, testes de sinal no osciloscópio e testes de transmissão dos dados via redes e detecção de pessoas com o sensor.
+> Descrição breve e objetiva sobre o que o projeto faz (Ex: Sistema de automação/monitoramento inteligente baseado em IoT para [inserir objetivo principal, ex: segurança, agricultura, gestão de energia]).
 
+---
 
-A pasta códigos e usada para arquivar bibliotecas, programas de testes inicias
+## 🚀 Sobre o Projeto
 
-A pasta documentacaoDiaria&Testes, e usada para arquivar o progresso diário do projeto, e as implementações gerais feitas, além de arquivar os dados de testes feitos.
+O **SAPAV-IoT** é um projeto desenvolvido para integrar dispositivos embarcados à nuvem/internet, permitindo o monitoramento em tempo real, coleta de dados de sensores e controle de atuadores de forma remota e automatizada.
 
-A pasta estudos tem todo o embasamento teórico utilizado para leitura e estudos gerais do tema e dos sistemas e dispositivos utilizados.
+---
 
-A pasta hardware e destinada para PCBS, KICAD, circuitos físicos e analises e base de dados gerais dos sensores.
+## 🛠️ Tecnologias e Ferramentas Utilizadas
 
-A pasta Projeto_sinal_cidade_inteligente ate então acumula documentos diversos sobre cidades inteligente, focando em transito e agentes viários.
+O projeto faz uso das seguintes tecnologias e bibliotecas:
 
+* **Hardware:** [Ex: ESP32 / Arduino / Raspberry Pi / Sensores específicos]
+* **Linguagem:** [Ex: C++ (Arduino IDE / ESP-IDF) / Python]
+* **Comunicação:** [Ex: MQTT, HTTP, Wi-Fi, Bluetooth BLE]
+* **Plataforma / Nuvem (se aplicável):** [Ex: AWS IoT, ThingsBoard, Home Assistant, Firebase]
 
+---
 
+## 📂 Estrutura do Repositório
+
+```text
+SAPAV-IoT/
+├── firmware/       # Códigos fonte para os microcontroladores
+├── docs/           # Documentação, esquemas elétricos e diagramas
+├── backend/        # Servidores, APIs ou scripts de integração (se houver)
+└── README.md       # Documentação principal do projeto
