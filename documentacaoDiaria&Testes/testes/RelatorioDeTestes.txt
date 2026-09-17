@@ -1,0 +1,55 @@
+scope_ld2420_sinalTX(OT1)_RXFlutuando.bmp :
+Aqui foi verificado o sinal do LD2420 apenas com alimentação, logo sem comunicação com quaquer
+microcontrolador, RX flutuante e TX no osciloscopio. O sinal apresenta alguns ruidos persistentes duranto toda a analise.
+div do osciloscopio de 2V.
+
+Periodo: 43.70us
+
+Tensão maxima : 4.16V
+
+T. descida : 1.774us
+
+Frequencia: 22.88kHz
+
+scope_ld2420_sinalTX(OT2)_RXFlutuando_objetoProximo.bmp :
+Aqui foi verificado o sinal do LD2420 apenas com alimentação, logo sem comunicação com quaquer
+microcontrolador, RX flutuante e TX no osciloscopio. O sinal de OT2, que diferente do OT1 é digital, é senoidal.
+div do osciloscopio de 50mV.
+
+RMS: 48.3mV
+
+Periodo: 16.65ms
+
+Amplitude : 128mV
+
+T. descida : 4.533ms
+
+Frequencia: 60.06kHz
+
+
+scope_ld2420_sinalTX(OT1)_RXComunicando_objetoProximo.bmp :
+
+O teste foi verificar o sinal quando um objeto esta proximo do radar. O RX esta conectado no esp8266,
+com comunicação em 115000 e TX no osciloscopio.
+div do osciloscopio de 2V.
+
+RMS: 2.72V
+
+Amplitude: 3.20V
+
+Periodo : 42.98us
+
+
+scope_ld2420_sinalTX(OT1)_RXComunicando_objetoDistante.bmp :
+
+O teste foi verificar o sinal quando um objeto esta distante do radar. O RX esta conectado no esp8266,
+com comunicação em 115000 e TX no osciloscopio.
+div do osciloscopio de 2V.
+
+RMS: 2.67V
+
+Amplitude: 3.20V
+
+Periodo : 43.00us
+
+
