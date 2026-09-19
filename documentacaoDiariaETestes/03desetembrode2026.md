@@ -67,7 +67,7 @@ LD2420 radar;
 // Configurações de Rede e Broker
 const char* ssid = "SUA_REDE_WIFI";
 const char* password = "SUA_SENHA_WIFI";
-const char* orionUrl = "http://192.168.0.95:31330/v2/op/update";
+const char* orionUrl = "http://<ip aqui>/v2/op/update";
 
 // Controle de Estado
 int lastDistance = -1;
@@ -166,7 +166,7 @@ Executar na estação de trabalho (nerds-workstation) conectada à mesma sub-red
 Consulta Pontual (cURL)
 Bash
 
-curl -X GET "http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:Device:LD2420" \
+curl -X GET "http://<ip aqui>/v2/entities/urn:ngsi-ld:Device:LD2420" \
   -H "fiware-service: openiot" \
   -H "fiware-servicepath: /"
 
@@ -175,7 +175,7 @@ Dashboard Dinâmico via Terminal
 Atualiza os valores a cada 2 segundos destacando mudanças em tempo real:
 Bash
 
-watch -n 2 -d 'curl -s -X GET "http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:Device:LD2420" -H "fiware-service: openiot" -H "fiware-servicepath: /"'
+watch -n 2 -d 'curl -s -X GET "http://<ip aqui>/v2/entities/urn:ngsi-ld:Device:LD2420" -H "fiware-service: openiot" -H "fiware-servicepath: /"'
 
 6. Acesso Externo Móvel (Túnel SSH Reverso)
 
@@ -183,7 +183,7 @@ Permite consultar os dados do broker em redes móveis (4G/5G) sem necessidade de
 Inicialização do Túnel na Estação Local
 Bash
 
-ssh -p 443 -R0:192.168.0.95:31330 a.pinggy.io
+ssh -p 443 -R0:<ip aqui> a.pinggy.io
 
 Requisição Mobile (via API Tester / HTTP Shortcuts)
 

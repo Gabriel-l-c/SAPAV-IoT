@@ -10,7 +10,7 @@ Acesso o [biblioteca esp8266wifi](https://arduino-esp8266.readthedocs.io/en/late
 Acesso o [ NGSI-LD for NGSI-v2 Developers » Linked Data](https://fiware-tutorials.readthedocs.io/en/latest/linked-data.html) para descricao do NGSI-LD no site do fiware.
 
 **identificar a versao do firware no ip **
-curl -s -X GET "http://192.168.0.95:31330/version"
+curl -s -X GET "http://<ip aqui>/version"
 {
   "orionld version": "1.8.0",
   "orion version":   "1.15.0-next",
@@ -25,7 +25,7 @@ curl -s -X GET "http://192.168.0.95:31330/version"
 
 
 **limpar o ip**
-curl -i -X DELETE "http://192.168.0.95:31330/ngsi-ld/v1/entities/urn:ngsi-ld:Device:LD2420" \
+curl -i -X DELETE "http://<ip aqui>/ngsi-ld/v1/entities/urn:ngsi-ld:Device:LD2420" \
   -H "NGSILD-Tenant: openiot"
 
 
@@ -60,7 +60,7 @@ const char* ssid = "SUA_REDE_WIFI";
 const char* password = "SUA_SENHA_WIFI";
 
 // Endpoint de Upsert em lote do NGSI-LD
-const char* orionLdUrl = "http://192.168.0.95:31330/ngsi-ld/v1/entityOperations/upsert?options=update";
+const char* orionLdUrl = "http://<ip aqui>/ngsi-ld/v1/entityOperations/upsert?options=update";
 
 // Variáveis de Controle de Estado
 int lastDistance = -1;
@@ -174,11 +174,11 @@ void loop() {
 
 **acesso a os dados enviados para o broker**
 
-curl -X GET "http://192.168.0.95:31330/ngsi-ld/v1/entities/urn:ngsi-ld:Device:LD2420" \
+curl -X GET "http://<ip aqui>/ngsi-ld/v1/entities/urn:ngsi-ld:Device:LD2420" \
   -H "NGSILD-Tenant: openiot" \
   -H "Accept: application/ld+json"
 
 
 **assistir atualização do sensor em tempo real**
 
-watch -n 2 -d 'curl -s -X GET "http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:Device:LD2420" -H "fiware-service: openiot" -H "fiware-servicepath: /"'
+watch -n 2 -d 'curl -s -X GET "http://<ip aqui>/v2/entities/urn:ngsi-ld:Device:LD2420" -H "fiware-service: openiot" -H "fiware-servicepath: /"'

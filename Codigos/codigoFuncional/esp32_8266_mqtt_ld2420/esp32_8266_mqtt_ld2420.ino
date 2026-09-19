@@ -11,11 +11,11 @@
 // =================================================================
 
 // Configurações Wi-Fi
-const char* ssid = "nerds";
-const char* password = "nerds23517891";
+const char* ssid = "SSID WIFI";
+const char* password = "SENHA WIFI";
 
 // Configurações MQTT
-const char* mqtt_server = "172.16.30.83"; // Ex: "broker.hivemq.com"
+const char* mqtt_server = "<ip aqui>"; // Ex: "broker.hivemq.com"
 const int mqtt_port = 1883; 
 const char* mqtt_client_id = "LD2420_Radar_Client"; 
 const char* mqtt_topic_distance = "radar/presenca/distancia"; // Tópico para a distância

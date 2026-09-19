@@ -32,8 +32,8 @@ que contivessem o cabeçalho `Content-Type`.
  e remover os cabeçalhos de *Tenant* do código Python, utilizando o escopo público padrão.
    * **Comandos de Limpeza Utilizados:**
      ```bash
-     curl -X DELETE "[http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:SensorUart:001?type=SensorUart](http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:SensorUart:001?type=SensorUart)"
-     curl -X DELETE "[http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:SensorUart:001?type=SensorUart](http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:SensorUart:001?type=SensorUart)" -H "Fiware-Service: default" -H "Fiware-ServicePath: /"
+     curl -X DELETE "[http://<ip aqui>/v2/entities/urn:ngsi-ld:SensorUart:001?type=SensorUart](http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:SensorUart:001?type=SensorUart)"
+     curl -X DELETE "[http://<ip aqui>/v2/entities/urn:ngsi-ld:SensorUart:001?type=SensorUart](http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:SensorUart:001?type=SensorUart)" -H "Fiware-Service: default" -H "Fiware-ServicePath: /"
      ```
 
 ---
@@ -59,7 +59,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class Config:
-    BROKER_URL = "[http://192.168.0.95:31330](http://192.168.0.95:31330)"
+    BROKER_URL = "[http://<ip aqui>](http://<ip aqui>)"
     ENTITY_ID = "urn:ngsi-ld:SensorUart:001"
     ENTITY_TYPE = "SensorUart"
     SERIAL_PORT = "/dev/ttyUSB0"
@@ -162,5 +162,5 @@ python3 fiware_sensor_integration.py
 
 **Consultar os dados atualizados via terminal (verificar persistência no FIWARE):**
 ```bash
-curl -s [http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:SensorUart:001](http://192.168.0.95:31330/v2/entities/urn:ngsi-ld:SensorUart:001) | python3 -m json.tool
+curl -s [http://<ip aqui>/v2/entities/urn:ngsi-ld:SensorUart:001](http://<ip aqui>/v2/entities/urn:ngsi-ld:SensorUart:001) | python3 -m json.tool
 ```

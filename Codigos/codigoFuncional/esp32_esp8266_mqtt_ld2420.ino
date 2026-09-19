@@ -27,11 +27,11 @@
 // **********************************************
 
 // Configurações da sua Rede Wi-Fi
-const char* ssid = "nerds";      // <<<<<<< MUDAR
-const char* password = "nerds23517891";    // <<<<<<< MUDAR
+const char* ssid = "SSID WIFI";      // <<<<<<< MUDAR
+const char* password = "SENHA WIFI";    // <<<<<<< MUDAR
 
 // Configurações do Broker MQTT
-const char* mqtt_server = "172.16.30.90"; // Ex: "192.168.1.100" ou um nome de host
+const char* mqtt_server = "<ip aqui>"; // Ex: "192.168.1.100" ou um nome de host
 const int mqtt_port = 1883;              // Porta padrão do MQTT
 const char* mqtt_client_id = "LD2420_Radar_ESP8266"; // ID único para o cliente
 
@@ -39,8 +39,8 @@ const char* mqtt_client_id = "LD2420_Radar_ESP8266"; // ID único para o cliente
 const char* mqtt_topic_distance = "radar/ld2420/distance_cm";
 const char* mqtt_topic_state = "radar/ld2420/state";
 
-const char* mqtt_user = "nerd";    // <<<<<<< MUDAR
-const char* mqtt_pass = "nerd135798642"; // <<<<<<< MUDAR
+const char* mqtt_user = "SSID WIFI";    // <<<<<<< MUDAR
+const char* mqtt_pass = "SENHA WIFI"; // <<<<<<< MUDAR
 // Objetos para Wi-Fi e MQTT
 WiFiClient espClient;
 PubSubClient client(espClient);

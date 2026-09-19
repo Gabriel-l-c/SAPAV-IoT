@@ -6,7 +6,7 @@ import paho.mqtt.client as mqtt
 # CONFIGURAÇÕES MQTT
 # =================================================================
 
-MQTT_SERVER = "172.16.30.83" # O mesmo IP do seu código Arduino
+MQTT_SERVER = "<ip aqui>" # O mesmo IP do seu código Arduino
 MQTT_PORT = 1883
 MQTT_TOPIC_DISTANCE = "radar/presenca/distancia"
 MQTT_TOPIC_STATE = "radar/presenca/estado"

@@ -15,7 +15,7 @@ Arquitetura Edge-Gateway: LD2420 + ESP8266 + Raspberry Pi 4 + FIWARE Orion-LDEst
        ▼
 [ Rede Local / Ethernet ]
        ▼
-[ FIWARE Orion-LD ] (Context Broker - 192.168.0.95:31330)
+[ FIWARE Orion-LD ] (Context Broker - <ip aqui>)
 Pinagem LD2420 $\leftrightarrow$ ESP8266:TX do Sensor $\rightarrow$ Pino 13 (D7) do ESP8266 (RX da SoftwareSerial)RX do Sensor $\rightarrow$ Pino 15 (D8) do ESP8266 (TX da SoftwareSerial)VCC/GND $\rightarrow$ 5V ou 3.3V / GND2. Firmware do Nó Sensor (ESP8266)O código abaixo deve ser gravado no ESP8266. Ele foi purgado de lógicas de rede (Wi-Fi/HTTP), atuando como um conversor UART-para-USB super rápido.C++
 #include <SoftwareSerial.h>
 #include "LD2420.h"
@@ -92,7 +92,7 @@ import time
 # ================= CONFIGURAÇÕES =================
 PORTA_USB = '/dev/ttyUSB0' # Pode ser /dev/ttyUSB1 dependendo de onde plugar
 BAUD_RATE = 115200
-ORION_URL = 'http://192.168.0.95:31330/ngsi-ld/v1/entityOperations/upsert?options=update'
+ORION_URL = 'http://<ip aqui>/ngsi-ld/v1/entityOperations/upsert?options=update'
 # =================================================
 
 def enviar_para_fiware(presence, distance):
