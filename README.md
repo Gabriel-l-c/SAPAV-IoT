@@ -28,5 +28,6 @@ SAPAV-IoT/
 ├── Codigo/       # Códigos fonte para os microcontroladores
 ├── Estudos/           # Documentação, esquemas elétricos e diagramas
 ├── Hardware/        # Servidores, APIs ou scripts de integração (se houver)
-├── Projeto_sinal_cidade_inteligente/   
+├── Projeto_sinal_cidade_inteligente/
+├── documentacaoDiariaETestes/
 └── README.md       # Documentação principal do projeto
