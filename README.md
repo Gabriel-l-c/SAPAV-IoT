@@ -25,7 +25,8 @@ O projeto faz uso das seguintes tecnologias e bibliotecas:
 
 ```text
 SAPAV-IoT/
-├── codigo/       # Códigos fonte para os microcontroladores
-├── docs/           # Documentação, esquemas elétricos e diagramas
-├── backend/        # Servidores, APIs ou scripts de integração (se houver)
+├── Codigo/       # Códigos fonte para os microcontroladores
+├── Estudos/           # Documentação, esquemas elétricos e diagramas
+├── Hardware/        # Servidores, APIs ou scripts de integração (se houver)
+├── Projeto_sinal_cidade_inteligente/   
 └── README.md       # Documentação principal do projeto
