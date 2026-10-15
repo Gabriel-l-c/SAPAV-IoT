@@ -25,7 +25,7 @@ O projeto faz uso das seguintes tecnologias e bibliotecas:
 
 ```text
 SAPAV-IoT/
-├── firmware/       # Códigos fonte para os microcontroladores
+├── codigo/       # Códigos fonte para os microcontroladores
 ├── docs/           # Documentação, esquemas elétricos e diagramas
 ├── backend/        # Servidores, APIs ou scripts de integração (se houver)
 └── README.md       # Documentação principal do projeto
