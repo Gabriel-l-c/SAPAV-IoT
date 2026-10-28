@@ -41,4 +41,4 @@ SAPAV-IoT/
 └── README.md                  # Main project documentation
 
 
-![Prototype](Documentation/protorype.jpg)
+![Prototype](Documentation/prototype.jpg)
