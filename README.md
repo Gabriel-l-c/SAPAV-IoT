@@ -14,10 +14,10 @@ O **SAPAV-IoT** é um projeto desenvolvido para integrar dispositivos embarcados
 
 O projeto faz uso das seguintes tecnologias e bibliotecas:
 
-* **Hardware:** [Ex: ESP32 / Arduino / Raspberry Pi / Sensores específicos]
-* **Linguagem:** [Ex: C++ (Arduino IDE / ESP-IDF) / Python]
-* **Comunicação:** [Ex: MQTT, HTTP, Wi-Fi, Bluetooth BLE]
-* **Plataforma / Nuvem (se aplicável):** [Ex: AWS IoT, ThingsBoard, Home Assistant, Firebase]
+* **Hardware:**  ESP8266 /  Raspberry Pi 
+* **Linguagem:**  C++  / Python]
+* **Comunicação:**  MQTT, HTTP, Wi-Fi
+* **Plataforma / Nuvem (se aplicável):** Fiware
 
 ---
 
@@ -29,5 +29,5 @@ SAPAV-IoT/
 ├── Estudos/           # Documentação
 ├── Hardware/        # scripts de integração
 ├── Projeto_sinal_cidade_inteligente/
-├── documentacaoDiariaETestes/
+├── documentacaoDiariaETestes/ #analises de osciloscópio e sinais 
 └── README.md       # Documentação principal do projeto
