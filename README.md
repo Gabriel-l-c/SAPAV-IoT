@@ -39,6 +39,5 @@ SAPAV-IoT/
 ├── Projeto_sinal_cidade_inteligente/ # Structural logic of actuators and spatial modeling of intersections
 ├── documentacaoDiariaETestes/ # Oscilloscope analyses, polling scripts, and load test results (CSVs)
 └── README.md                  # Main project documentation
-
-
+```
 ![Prototype](Documentation/prototype.jpg)
